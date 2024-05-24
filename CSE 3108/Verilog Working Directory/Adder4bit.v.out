@@ -1,0 +1,39 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_000001ba5c8126e0 .scope module, "Adder4bit" "Adder4bit" 2 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "A";
+    .port_info 1 /INPUT 1 "B";
+    .port_info 2 /INPUT 1 "Cin";
+    .port_info 3 /OUTPUT 1 "S";
+    .port_info 4 /OUTPUT 1 "Cout";
+o000001ba5c846fd8 .functor BUFZ 1, C4<z>; HiZ drive
+o000001ba5c847008 .functor BUFZ 1, C4<z>; HiZ drive
+L_000001ba5c7fa1f0 .functor XOR 1, o000001ba5c846fd8, o000001ba5c847008, C4<0>, C4<0>;
+o000001ba5c847038 .functor BUFZ 1, C4<z>; HiZ drive
+L_000001ba5c8131a0 .functor XOR 1, L_000001ba5c7fa1f0, o000001ba5c847038, C4<0>, C4<0>;
+L_000001ba5c7fede0 .functor AND 1, o000001ba5c846fd8, o000001ba5c847008, C4<1>, C4<1>;
+L_000001ba5c7fee50 .functor XOR 1, o000001ba5c846fd8, o000001ba5c847008, C4<0>, C4<0>;
+L_000001ba5c7feec0 .functor AND 1, L_000001ba5c7fee50, o000001ba5c847038, C4<1>, C4<1>;
+L_000001ba5c7fef30 .functor OR 1, L_000001ba5c7fede0, L_000001ba5c7feec0, C4<0>, C4<0>;
+v000001ba5c812f80_0 .net "A", 0 0, o000001ba5c846fd8;  0 drivers
+v000001ba5c7fa150_0 .net "B", 0 0, o000001ba5c847008;  0 drivers
+v000001ba5c812870_0 .net "Cin", 0 0, o000001ba5c847038;  0 drivers
+v000001ba5c812910_0 .net "Cout", 0 0, L_000001ba5c7fef30;  1 drivers
+v000001ba5c8129b0_0 .net "S", 0 0, L_000001ba5c8131a0;  1 drivers
+v000001ba5c812a50_0 .net *"_ivl_0", 0 0, L_000001ba5c7fa1f0;  1 drivers
+v000001ba5c812af0_0 .net *"_ivl_4", 0 0, L_000001ba5c7fede0;  1 drivers
+v000001ba5c7fec10_0 .net *"_ivl_6", 0 0, L_000001ba5c7fee50;  1 drivers
+v000001ba5c7fecb0_0 .net *"_ivl_8", 0 0, L_000001ba5c7feec0;  1 drivers
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "Adder4bit.v";
